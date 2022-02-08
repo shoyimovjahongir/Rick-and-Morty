@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class UserInteractor @Inject constructor(private val userRepository: UserRepository) {
-
     fun getUsers():Flow<Result<UserData2>>{
         return userRepository.getUser()
             .map {
