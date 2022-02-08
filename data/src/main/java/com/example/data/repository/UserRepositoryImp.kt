@@ -10,6 +10,7 @@ import javax.inject.Inject
 
 class UserRepositoryImp @Inject constructor(private val apiService: ApiService) : UserRepository {
     override fun getUser(): Flow<Response<UserData2>> {
+
         return flow { emit(apiService.getUsers()) }
     }
 
