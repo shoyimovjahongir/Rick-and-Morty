@@ -8,21 +8,22 @@ import com.example.domain.models2.Result
 import com.example.domain.models2.UserData2
 import com.squareup.picasso.Picasso
 
-class RvAdapter(val list: List<Result>, val listener:OnClicListener) : RecyclerView.Adapter<RvAdapter.MV>() {
+class RvAdapter(val list: List<Result>, val listener: OnClicListener) :
+    RecyclerView.Adapter<RvAdapter.MV>() {
 
     inner class MV(val itemBinding: RvItemBinding) : RecyclerView.ViewHolder(itemBinding.root) {
 
         fun onBind(course: Result, position: Int) {
 
-         Picasso.get().load(course.image).into(itemBinding.img1)
+            Picasso.get().load(course.image).into(itemBinding.img1)
             itemBinding.tv2.text = course.name
-            itemBinding.text3.text= course.status
-            itemBinding.text4.text= course.created
+            itemBinding.text3.text = course.status
+            itemBinding.text4.text = course.created
             itemBinding.text.text = course.gender
 
-         itemView.setOnClickListener {
-             listener.onItemClic(list,position)
-         }
+            itemView.setOnClickListener {
+                listener.onItemClic(list, position)
+            }
         }
     }
 
